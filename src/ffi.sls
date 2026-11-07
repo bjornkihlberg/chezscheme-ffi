@@ -1,7 +1,8 @@
 #!chezscheme
 
 (library (chezscheme-ffi v1 ffi)
-  (export string->ftype-char*/null
+  (export char*
+          string->ftype-char*/null
           ftype-null
           ftype-alloc
           ftype-calloc
@@ -13,6 +14,8 @@
           define-foreign-procedure)
 
   (import (chezscheme))
+
+  (define-ftype char* (* char))
 
   (define (string->ftype-char*/null s)
     (meta-cond
